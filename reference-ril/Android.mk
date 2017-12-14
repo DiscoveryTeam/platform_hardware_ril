@@ -18,6 +18,7 @@ LOCAL_STATIC_LIBRARIES := libqemu_pipe libbase
 
 # for asprinf
 LOCAL_CFLAGS := -D_GNU_SOURCE
+LOCAL_CFLAGS += -Wall -Wextra -Wno-unused-variable -Wno-unused-function -Werror
 
 LOCAL_C_INCLUDES := system/core/qemu_pipe/include
 
@@ -32,6 +33,8 @@ endif
 ifeq ($(TARGET_DEVICE),dream)
   LOCAL_CFLAGS += -DPOLL_CALL_STATE -DUSE_QMI
 endif
+
+LOCAL_VENDOR_MODULE:= true
 
 ifeq (foo,foo)
   #build shared library
